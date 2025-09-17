@@ -19,7 +19,7 @@ class PositionalEncoding(nn.Module):
         return x + self.pe[:, :x.size(1), :]
 
 
-class TransformerEDEncoder(nn.Module):
+class TransformerEncoder(nn.Module):
     def __init__(self, embedding_dim=300, model_dim=256, nhead=8, num_layers=4,
                  dropout=0.1, l2_normalize=True):
         super().__init__()
