@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 from utils import load_triplet_datasets, train_test_split
 from rebind.baselines.transformer import (
-    TransformerEDEncoder, DistanceCalib, cosine_distance,
+    TransformerEncoder, DistanceCalib, cosine_distance,
     vicreg_regularizer, count_params
 )
 
@@ -113,7 +113,7 @@ def main(args):
                 }, ckpt_path)
                 print(f" saved best → {ckpt_path}")
 
-    # Save final + curve
+
     final_path = os.path.join(save_dir, f"final_model_{args.model_name}.pth")
     torch.save({"encoder": enc.state_dict(), "calib": cal.state_dict()}, final_path)
     print(f" saved final → {final_path}")
